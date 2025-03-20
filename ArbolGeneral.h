@@ -24,6 +24,8 @@ public:
     void preOrden(NodoGeneral<T>* nodo);
     void posOrden();
     void nivelOrden();
+    NodoGeneral<T>* buscarNodo(NodoGeneral<T>* nodo, T valor);
+    bool buscarRecursivo(NodoGeneral<T>* nodo, T n);
 };
 
 #include "ArbolGeneral.hxx"

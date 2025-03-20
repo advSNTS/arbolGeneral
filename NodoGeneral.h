@@ -18,6 +18,7 @@ public:
     void adicionarDesc(T& nval);
     bool eliminarDesc(T& val);
     bool esHoja();
+    const std::vector<NodoGeneral<T>*>& obtenerDesc() const;
 };
 
 #include "NodoGeneral.hxx"

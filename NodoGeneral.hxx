@@ -7,10 +7,16 @@ NodoGeneral<T>::NodoGeneral(){
 
 template <class T>
 NodoGeneral<T>::~NodoGeneral(){
-    for(std::vector<NodoGeneral<T>>::iterator it = this->desc.begin(); it != this->desc.end(); it++){
+    for(typename std::vector<NodoGeneral<T>*>::iterator it = this->desc.begin(); it != this->desc.end(); it++){
         delete *it;
     }
     this->desc.clear();
+}
+
+//como desc es protegido, entonces hacemos un getter
+template <class T>
+const std::vector<NodoGeneral<T>*>& NodoGeneral<T>::obtenerDesc() const {
+    return desc;
 }
 
 template <class T>
@@ -38,7 +44,7 @@ void NodoGeneral<T>::adicionarDesc(T& nval){
 template <class T>
 bool NodoGeneral<T>::eliminarDesc(T& val){
     NodoGeneral<T> *aux;
-    std::vector<NodoGeneral<T>*>::iterator it;
+    typename std::vector<NodoGeneral<T>*>::iterator it;
     bool eliminado = false;
     for( it = this->desc.begin(); it != this->desc.end(); it++){
         aux = *it;
