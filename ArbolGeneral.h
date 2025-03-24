@@ -1,7 +1,7 @@
 #ifndef ARBOL_GENERAL_H
 #define ARBOL_GENERAL_H
 #include "NodoGeneral.h"
-
+#include <queue>
 template<class T>
 class ArbolGeneral
 {
@@ -26,6 +26,7 @@ public:
     void nivelOrden();
     NodoGeneral<T>* buscarNodo(NodoGeneral<T>* nodo, T valor);
     bool buscarRecursivo(NodoGeneral<T>* nodo, T n);
+    void posOrden(NodoGeneral<T>* nodo);
 };
 
 #include "ArbolGeneral.hxx"

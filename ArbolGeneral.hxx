@@ -175,10 +175,39 @@ void ArbolGeneral<T>::preOrden(NodoGeneral<T>* nodo){
 
 template <class T>
 void ArbolGeneral<T>::posOrden(){
-    
+    if(!this->esVacio()){
+        this->posOrden(this->raiz);
+    }
+}
+
+
+template <class T>
+void ArbolGeneral<T>::posOrden(NodoGeneral<T>* nodo){
+
+    typename std::vector<NodoGeneral<T>* >::const_iterator it;
+    for(it = nodo->obtenerDesc().begin(); it != nodo->obtenerDesc().end(); it++){
+        this->posOrden(*it);
+    }
+
+    std::cout << nodo->obtenerDato() << " ";
 }
 
 template <class T>
 void ArbolGeneral<T>::nivelOrden(){
-    
+    if (this->esVacio()) return; // Si el árbol está vacío, no hacemos nada
+
+    std::queue<NodoGeneral<T>*> cola;
+    cola.push(this->raiz); // Comenzamos desde la raíz
+
+    while (!cola.empty()) {
+        NodoGeneral<T>* nodo = cola.front(); // Tomamos el primer nodo de la cola
+        cola.pop();
+
+        std::cout << nodo->obtenerDato() << " "; // Procesamos el nodo actual
+
+        // Agregamos los hijos del nodo actual a la cola
+        for (NodoGeneral<T>* hijo : nodo->obtenerDesc()) {
+            cola.push(hijo);
+        }
+    }
 }

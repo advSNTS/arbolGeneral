@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ArbolGeneral.h"
 int main(){
+    /*
     ArbolGeneral<int> arbol;
 
     // Crear un árbol con raíz 1
@@ -23,5 +24,23 @@ int main(){
     std::cout<<arbol.buscar(8); //falso
 
     std::cout << std::endl;
+    */
+
+    ArbolGeneral<char> arbol;
+    NodoGeneral<char>* raiz = new NodoGeneral<char>();
+    char valor = 'A';
+    raiz->fijarDato(valor);
+    arbol.fijarRaiz(raiz);
+    arbol.insertarNodo('A', 'B');
+    arbol.insertarNodo('A', 'C');
+    arbol.insertarNodo('B', 'D');
+    arbol.insertarNodo('D', 'J');
+    arbol.insertarNodo('B', 'E');
+    arbol.insertarNodo('E', 'F');
+    arbol.insertarNodo('F', 'K');
+    arbol.insertarNodo('K', 'U');
+
+
+    arbol.nivelOrden();
     return 0;
 }
